@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <cstdlib>
+#include <algorithm>
 using namespace std;
 
 struct node {
@@ -11,12 +12,14 @@ struct node {
     string language;
     float acc;
 
-    node(string w, string lang, float total, float correct){
+    node(std::string w, std::string lang, float total, float correct){
         this->word = w;
         this->language = lang;
-        this->acc = (correct/total);
+        this->acc = (correct / total);
     }
 };
 
+int partition(std::vector<node>& array, int low, int high);
+void quickSort(std::vector<node>& array, int low, int high);
 
 

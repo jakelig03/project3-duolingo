@@ -9,8 +9,11 @@
 #include "node.h"
 using namespace std;
 
+
+
 int main() {
     //set<string> l; //checking all languages
+
     vector<node> en; //english
     vector<node> sp; //spanish
     vector<node> it; //italian
@@ -19,7 +22,7 @@ int main() {
     vector<node> fr; //french
 
 
-    string filename = "data.csv";
+    string filename = "/project3-duolingo/project3/duolingodata.csv";
     ifstream file(filename.c_str());
 
     //variables to hold different parts
@@ -94,13 +97,20 @@ int main() {
         }
         //german and french have only learning language not native language
     }
-    file.close();
 
+    file.close();
      //testing english vector
        for(int i = 0; i < 10000; i++){
            cout << fixed << setprecision(2) << "Word: " << en[i].word << "   " << "Language: " << en[i].language << "  " << "accuracy: " << en[i].acc << endl;
        }
 
+       // Check if quickSort is working
+
+    int n = sizeof(en) / sizeof(en[0].acc);
+    quickSort(en, 0, n - 1);
+    for(auto nodeEN: en){
+        cout << nodeEN.acc << endl;
+    }
 
     //sort algorithm
 
