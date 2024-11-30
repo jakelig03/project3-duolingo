@@ -106,7 +106,12 @@ int main() {
     cout << "sorting done" << endl;
     for(int i = 0; i < en.size(); i++){
         cout << fixed << setprecision(2) << "Word: " << en[i].word << "   " << "Language: " << en[i].language << "  " << "accuracy: " << en[i].acc << endl;
+    }
 
+    shellSort(en);
+    cout << "shell sort done" << endl;
+    for (const auto& n : en){
+        cout << fixed << setprecision(2) << "Word: " << n.word << "   " << "Language: " << n.language << "  " << "accuracy: " << n.acc << endl;
     }
 
 
