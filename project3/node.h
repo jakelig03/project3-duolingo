@@ -21,5 +21,6 @@ struct node {
 
 int partition(std::vector<node>& array, int low, int high);
 void quickSort(std::vector<node>& array, int low, int high);
+void shellSort(vector<node>& array);
 
 
