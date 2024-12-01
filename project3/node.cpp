@@ -37,15 +37,16 @@ void quickSort(vector<node>& array, int low, int high){
     }
 }
 
-// Shell sort from Module 8 Discussion Slides
+// used Shell sort pseudocode from Module 8 Discussion Slides
 void shellSort(vector<node>& array){
     int n = array.size();
     for (int gap = n/2; gap > 0; gap /= 2){
         for (int i = gap; i < n ; i++){
             node temp = array[i];
-            int j;
-            for (j = i; j >= gap && array[j - gap] > temp; j -= gap){
+            int j = i;
+            while (j >= gap && array[j - gap] > temp){
                 array[j] = array[j - gap];
+                j -= gap;
             }
         }
         array[j] = temp;
