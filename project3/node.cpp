@@ -43,14 +43,12 @@ void shellSort(vector<node>& array){
     for (int gap = n/2; gap > 0; gap /= 2){
         for (int i = gap; i < n ; i++){
             node temp = array[i];
-            int j = i;
-            while (j >= gap && array[j - gap] > temp){
+            int j;
+            for (j = i; j >= gap && array[j - gap].acc > temp.acc; j -= gap){
                 array[j] = array[j - gap];
-                j -= gap;
             }
+            array[j] = temp;
         }
-        array[j] = temp;
     }
-    return 0;
 }
 
