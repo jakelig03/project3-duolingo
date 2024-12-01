@@ -37,6 +37,21 @@ void quickSort(vector<node>& array, int low, int high){
     }
 }
 
+// Shell sort from Module 8 Discussion Slides
+void shellSort(vector<node>& array){
+    int n = array.size();
+    for (int gap = n/2; gap > 0; gap /= 2){
+        for (int i = gap; i < n ; i++){
+            node temp = array[i];
+            int j;
+            for (j = i; j >= gap && array[j - gap].acc > temp.acc; j -= gap){
+                array[j] = array[j - gap];
+            }
+            array[j] = temp;
+        }
+    }
+}
+
 // use const so we do not modify the array after sorting
 
 void Summary(const std::vector<node>& array){

@@ -101,15 +101,14 @@ int main() {
     }
 
     file.close();
-     //testing english vector
-
-/*
-    for(int i = 0; i < en.size(); i++){
-        cout << fixed << setprecision(2) << "Word: " << en[i].word << "   " << "Language: " << en[i].language << "  " << "accuracy: " << en[i].acc << endl;
-
+     //testing shell sort on english array
+     /*
+    shellSort(en);
+    cout << "shell sort done" << endl;
+    for (const auto& n : en){
+        cout << fixed << setprecision(2) << "Word: " << n.word << "   " << "Language: " << n.language << "  " << "accuracy: " << n.acc << endl;
     }
-*/
-
+    */
     //sort algorithm
     //print results
 
@@ -154,6 +153,12 @@ int main() {
                 }
                 else {
                     cout << "Shell Sort English" << endl;
+                    auto start = chrono::high_resolution_clock::now();
+                    shellSort(en);
+                    auto end = chrono::high_resolution_clock::now();
+                    chrono::duration<double> duration = end - start;
+                    cout << "Time to Quick Sort English is: " << fixed << setprecision(5) << duration.count() << " second" << endl;
+
                 }
                 cout << "Would you like to reveal ascending or descending? ('a' or 'd')" << endl;
                 cin >> response;
