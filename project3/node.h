@@ -23,4 +23,5 @@ int partition(std::vector<node>& array, int low, int high);
 void quickSort(std::vector<node>& array, int low, int high);
 void shellSort(vector<node>& array);
 
-
+void Summary(const std::vector<node>& array);
+void table(const std::vector<node>& array, int numberToDisplay, bool ascending);

@@ -6,6 +6,7 @@
 #include <set>
 #include <cstdlib>
 #include <chrono>
+#include <iomanip>
 #include "node.h"
 using namespace std;
 
@@ -100,40 +101,20 @@ int main() {
     }
 
     file.close();
-     //testing english vector
-     cout << "sorting" << en.size() << endl;
-    quickSort(en, 0, en.size() - 1);
-    cout << "sorting done" << endl;
-    for(int i = 0; i < en.size(); i++){
-        cout << fixed << setprecision(2) << "Word: " << en[i].word << "   " << "Language: " << en[i].language << "  " << "accuracy: " << en[i].acc << endl;
-    }
-
+     //testing shell sort on english array
+     /*
     shellSort(en);
     cout << "shell sort done" << endl;
     for (const auto& n : en){
         cout << fixed << setprecision(2) << "Word: " << n.word << "   " << "Language: " << n.language << "  " << "accuracy: " << n.acc << endl;
     }
-
-
-
-
+    */
     //sort algorithm
-
-
-
-
     //print results
 
 
 
 
-
-
-
-
-
-
-/*
     bool run = true;
     bool quicksort = true;
     string response;
@@ -151,87 +132,148 @@ int main() {
         }
         cin >> response;
 
+        // 1. View Words based on Native Languages
         if(response == "1"){
             cout << "What language would you like to view? (insert number)" << endl;
             cout << "1. English" << endl << "2. Spanish" << endl << "3. Italian" << endl << "4. Portuguese" << endl;
             cin >> response;
+
+            // ENGLISH
             if(response == "1"){
                 if(quicksort){
-                    cout << "quick sort english" << endl;
+                    cout << "Quick Sort English" << endl;
+                    // timer to calculate how long the algo takes to run. Credit: https://www.geeksforgeeks.org/chrono-in-c/
+                    auto start = chrono::high_resolution_clock::now();
+                    quickSort(en, 0, en.size() - 1);
+                    auto end = chrono::high_resolution_clock::now();
+                    chrono::duration<double> duration = end - start;
+                    cout << "Time to Quick Sort English is: " << fixed << setprecision(5) << duration.count() << " second" << endl;
+
+                    Summary(en);
                 }
                 else {
-                    cout << "shell sort english" << endl;
+                    cout << "Shell Sort English" << endl;
+                    auto start = chrono::high_resolution_clock::now();
+                    shellSort(en);
+                    auto end = chrono::high_resolution_clock::now();
+                    chrono::duration<double> duration = end - start;
+                    cout << "Time to Quick Sort English is: " << fixed << setprecision(5) << duration.count() << " second" << endl;
+
                 }
                 cout << "Would you like to reveal ascending or descending? ('a' or 'd')" << endl;
                 cin >> response;
                 if(response == "a"){
                     //print from index[0] to n
+                    table(en, 8, true);
                 }
                 else if(response == "d"){
                     //print from index[size] to (size-n)
+                    table(en, 8, false);
+
                 }
             }
+            // SPANISH
             else if(response == "2"){
                 if(quicksort){
-                    cout << "quick sort spanish" << endl;
+                    cout << "Quick Sort Spanish" << endl;
+                    auto start = chrono::high_resolution_clock::now();
+                    quickSort(sp, 0, sp.size() - 1);
+                    auto end = chrono::high_resolution_clock::now();
+                    chrono::duration<double> duration = end - start;
+                    cout << "Time to Quick Sort Spanish is: " << fixed << setprecision(5) << duration.count() << " second" << endl;
+
+                    Summary(sp);
+
                 }
                 else{
-                    cout << "shell sort spanish" << endl;
+                    cout << "Shell Sort Spanish" << endl;
                 }
                 cout << "Would you like to reveal ascending or descending? ('a' or 'd')" << endl;
                 cin >> response;
                 if(response == "a"){
                     //print from index[0] to n
+                    table(sp, 8, true);
+
                 }
                 else if(response == "d"){
                     //print from index[size] to (size-n)
+                    table(en, 8, false);
+
                 }
             }
+            //
             else if(response == "3"){
                 if(quicksort){
-                    cout << "quick sort italian" << endl;
+                    cout << "Quick Sort Italian" << endl;
+                    auto start = chrono::high_resolution_clock::now();
+                    quickSort(it, 0, it.size() - 1);
+                    auto end = chrono::high_resolution_clock::now();
+                    chrono::duration<double> duration = end - start;
+                    cout << "Time to Quick Sort Italian is: " << fixed << setprecision(5) << duration.count() << " second" << endl;
+
+                    Summary(it);
+
                 }
                 else{
-                    cout << "shell sort itlaian" << endl;
+                    cout << "Shell Sort Italian" << endl;
                 }
                 cout << "Would you like to reveal ascending or descending? ('a' or 'd')" << endl;
                 cin >> response;
                 if(response == "a"){
                     //print from index[0] to n
+                    table(it, 8, true);
+
                 }
                 else if(response == "d"){
                     //print from index[size] to (size-n)
+                    table(it, 8, false);
+
                 }
             }
             else if(response == "4"){
                 if(quicksort){
-                    cout << "quick sort portuguese" << endl;
+                    cout << "Quick Sort Portuguese" << endl;
+                    auto start = chrono::high_resolution_clock::now();
+                    quickSort(pt, 0, pt.size() - 1);
+                    auto end = chrono::high_resolution_clock::now();
+                    chrono::duration<double> duration = end - start;
+                    cout << "Time to Quick Sort Portuguese is: " << fixed << setprecision(5) << duration.count() << " second" << endl;
+                    Summary(pt);
+
                 }
                 else{
-                    cout << "shell sort portuguese" << endl;
+                    cout << "Shell Sort Portuguese" << endl;
                 }
                 cout << "Would you like to reveal ascending or descending? ('a' or 'd')" << endl;
                 cin >> response;
                 if(response == "a"){
                     //print from index[0] to n
+                    table(pt, 8, true);
+
                 }
                 else if(response == "d"){
                     //print from index[size] to (size-n)
+                    table(pt, 8, false);
+
                 }
             }
         }
+        // 2. Change Sort
         else if(response == "2"){
             quicksort = !quicksort;
         }
+        // 3. View languages
         else if(response == "3"){
             cout << "en: English"<< endl << "sp: Spanish"<< endl << "it: Italian"<< endl << "pt: Portuguese"<< endl << "de: German" << endl << "fr: French" << endl << "(German and French are only learning languages)" << endl;
         }
+
+        // EXIT
         else if(response == "4"){
             cout << "Goodbye !";
             run = false;
         }
     }
-*/
+
 
     return 0;
 }
