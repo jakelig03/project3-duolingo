@@ -101,14 +101,14 @@ int main() {
     }
 
     file.close();
-     //testing shell sort on english array
-     /*
-    shellSort(en);
-    cout << "shell sort done" << endl;
-    for (const auto& n : en){
-        cout << fixed << setprecision(2) << "Word: " << n.word << "   " << "Language: " << n.language << "  " << "accuracy: " << n.acc << endl;
-    }
-    */
+    //testing shell sort on english array
+    /*
+   shellSort(en);
+   cout << "shell sort done" << endl;
+   for (const auto& n : en){
+       cout << fixed << setprecision(2) << "Word: " << n.word << "   " << "Language: " << n.language << "  " << "accuracy: " << n.acc << endl;
+   }
+   */
     //sort algorithm
     //print results
 
@@ -157,7 +157,9 @@ int main() {
                     shellSort(en);
                     auto end = chrono::high_resolution_clock::now();
                     chrono::duration<double> duration = end - start;
-                    cout << "Time to Quick Sort English is: " << fixed << setprecision(5) << duration.count() << " second" << endl;
+                    cout << "Time to Shell Sort English is: " << fixed << setprecision(5) << duration.count() << " second" << endl;
+
+                    SummaryShell(en);
 
                 }
                 cout << "Would you like to reveal ascending or descending? ('a' or 'd')" << endl;
@@ -172,7 +174,7 @@ int main() {
 
                 }
             }
-            // SPANISH
+                // SPANISH
             else if(response == "2"){
                 if(quicksort){
                     cout << "Quick Sort Spanish" << endl;
@@ -187,6 +189,13 @@ int main() {
                 }
                 else{
                     cout << "Shell Sort Spanish" << endl;
+                    auto start = chrono::high_resolution_clock::now();
+                    shellSort(sp);
+                    auto end = chrono::high_resolution_clock::now();
+                    chrono::duration<double> duration = end - start;
+                    cout << "Time to Shell Sort Spanish is: " << fixed << setprecision(5) << duration.count() << " second" << endl;
+
+                    SummaryShell(sp);
                 }
                 cout << "Would you like to reveal ascending or descending? ('a' or 'd')" << endl;
                 cin >> response;
@@ -201,7 +210,7 @@ int main() {
 
                 }
             }
-            //
+                //
             else if(response == "3"){
                 if(quicksort){
                     cout << "Quick Sort Italian" << endl;
@@ -216,6 +225,13 @@ int main() {
                 }
                 else{
                     cout << "Shell Sort Italian" << endl;
+                    auto start = chrono::high_resolution_clock::now();
+                    shellSort(it);
+                    auto end = chrono::high_resolution_clock::now();
+                    chrono::duration<double> duration = end - start;
+                    cout << "Time to Shell Sort Italian is: " << fixed << setprecision(5) << duration.count() << " second" << endl;
+
+                    SummaryShell(it);
                 }
                 cout << "Would you like to reveal ascending or descending? ('a' or 'd')" << endl;
                 cin >> response;
@@ -243,6 +259,13 @@ int main() {
                 }
                 else{
                     cout << "Shell Sort Portuguese" << endl;
+                    auto start = chrono::high_resolution_clock::now();
+                    shellSort(pt);
+                    auto end = chrono::high_resolution_clock::now();
+                    chrono::duration<double> duration = end - start;
+                    cout << "Time to Shell Sort Portuguese is: " << fixed << setprecision(5) << duration.count() << " second" << endl;
+
+                    SummaryShell(pt);
                 }
                 cout << "Would you like to reveal ascending or descending? ('a' or 'd')" << endl;
                 cin >> response;
@@ -258,16 +281,16 @@ int main() {
                 }
             }
         }
-        // 2. Change Sort
+            // 2. Change Sort
         else if(response == "2"){
             quicksort = !quicksort;
         }
-        // 3. View languages
+            // 3. View languages
         else if(response == "3"){
             cout << "en: English"<< endl << "sp: Spanish"<< endl << "it: Italian"<< endl << "pt: Portuguese"<< endl << "de: German" << endl << "fr: French" << endl << "(German and French are only learning languages)" << endl;
         }
 
-        // EXIT
+            // EXIT
         else if(response == "4"){
             cout << "Goodbye !";
             run = false;
