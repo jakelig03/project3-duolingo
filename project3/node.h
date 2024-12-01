@@ -5,6 +5,7 @@
 #include <string>
 #include <cstdlib>
 #include <algorithm>
+#include <cmath>
 using namespace std;
 
 struct node {
@@ -24,4 +25,5 @@ void quickSort(std::vector<node>& array, int low, int high);
 void shellSort(vector<node>& array);
 
 void Summary(const std::vector<node>& array);
+void SummaryShell(const vector<node>& array);
 void table(const std::vector<node>& array, int numberToDisplay, bool ascending);
