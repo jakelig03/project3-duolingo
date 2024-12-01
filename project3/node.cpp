@@ -64,6 +64,39 @@ void Summary(const std::vector<node>& array){
     cout << " Average Accuracy: " << fixed << setprecision(2) << meanAcc << endl;
 }
 
+void SummaryShell(const vector<node>& array){
+    float totalAcc = 0.00;
+    for(auto &word : array){
+        totalAcc += word.acc;
+    }
+    float meanAcc = totalAcc / array.size();
+
+    // shellSort(array);
+
+    float medianAcc;
+    if (array.size() % 2 != 0){
+        medianAcc = array[array.size() / 2].acc;
+    }
+    else {
+        // in the case of where there is an even amount and has tp avg between two values
+        medianAcc = (array[(array.size() / 2) - 1].acc + array[array.size() / 2].acc) / 2.0;
+    }
+
+    // learned
+    float stdDevAcc;
+    float variance = 0.0;
+    for (const auto& word : array) {
+        variance += (word.acc - meanAcc) * (word.acc - meanAcc);
+    }
+    variance /= array.size();
+    stdDevAcc = sqrt(variance); // learned from https://www.w3schools.com/cpp/cpp_ref_math.asp
+
+    cout << "Total learning words: " << array.size() << endl;
+    cout << " Average Accuracy: " << fixed << setprecision(2) << meanAcc << endl;
+    cout << " Median Accuracy: " << fixed << setprecision(2) << medianAcc << endl;
+    cout << " Standard Deviation Accuracy: " << fixed << setprecision(2) << stdDevAcc << endl;
+}
+
 // no change to array
 void table(const std::vector<node>& array, int numberToDisplay, bool ascending){
     // Headers
