@@ -54,17 +54,7 @@ void shellSort(vector<node>& array){
 
 // use const so we do not modify the array after sorting
 
-void Summary(const std::vector<node>& array){
-    float totalAcc = 0.00;
-    for(auto &word : array){
-        totalAcc += word.acc;
-    }
-    float meanAcc = totalAcc / array.size();
-    cout << "Total learning words: " << array.size() << endl;
-    cout << " Average Accuracy: " << fixed << setprecision(2) << meanAcc << endl;
-}
-
-void SummaryShell(const vector<node>& array){
+void Summary(const vector<node>& array){
     float totalAcc = 0.00;
     for(auto &word : array){
         totalAcc += word.acc;
