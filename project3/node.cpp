@@ -2,7 +2,7 @@
 
 
 
-// Quick Sort code from Sort Module
+// Quick Sort code from Sort Module, modified to double while loops for bound checking and readability
 int partition(vector<node>& array, int low, int high) {
     // pivot is the first element, 2 precision floating point comparison
     float pivot = array[low].acc;
@@ -37,3 +37,45 @@ void quickSort(vector<node>& array, int low, int high){
     }
 }
 
+// use const so we do not modify the array after sorting
+
+void Summary(const std::vector<node>& array){
+    float totalAcc = 0.00;
+    for(auto &word : array){
+        totalAcc += word.acc;
+    }
+    float meanAcc = totalAcc / array.size();
+    cout << "Total learning words: " << array.size() << endl;
+    cout << " Average Accuracy: " << fixed << setprecision(2) << meanAcc << endl;
+}
+
+// no change to array
+void table(const std::vector<node>& array, int numberToDisplay, bool ascending){
+    // Headers
+    cout << endl;
+    if (ascending){
+        cout << numberToDisplay << " HARDEST" << " LEARNING WORDS" << endl;
+    }
+    else{
+        cout << numberToDisplay << " EASIEST" << " LEARNING WORDS" << endl;
+    }
+
+    cout.imbue(locale(""));
+    cout << left <<  setw(20) << "Word" << setw(10) << "Language" << setw(10) << "Accuracy" << endl;
+    cout << string(35, '-') << endl;
+
+    // ascending / decending ranges
+    int begin = ascending ? 0 : array.size() - 1;
+    int end = ascending ? numberToDisplay : array.size() - numberToDisplay - 1;
+    int increment = ascending ? 1 : -1;
+
+
+    for (int i = begin; i != end; i += increment){
+        // Word -  Learning Language - accuracy
+        cout << left
+             << setw(20) << array[i].word
+             << setw(10) << array[i].language
+             << fixed << setprecision(2) << array[i].acc << endl;
+    }
+
+}
