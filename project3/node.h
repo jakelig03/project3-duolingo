@@ -5,6 +5,7 @@
 #include <string>
 #include <cstdlib>
 #include <algorithm>
+#include <cmath>
 using namespace std;
 
 struct node {
@@ -25,3 +26,4 @@ void shellSort(vector<node>& array);
 
 void Summary(const std::vector<node>& array);
 void table(const std::vector<node>& array, int numberToDisplay, bool ascending);
+void compareAlgo (const vector<vector<node>>& array);
