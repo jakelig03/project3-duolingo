@@ -3,7 +3,6 @@
 #include <sstream>
 #include <vector>
 #include <string>
-#include <set>
 #include <cstdlib>
 #include <chrono>
 #include <iomanip>
@@ -14,7 +13,6 @@ using namespace std;
 
 
 int main() {
-    //set<string> l; //checking all languages
 
     vector<node> en; //english
     vector<node> sp; //spanish
@@ -66,25 +64,7 @@ int main() {
         getline(ss, last1, ',');
         getline(ss, last2, ',');
 
-/*
-    //output for testing
-    cout << "First: " << first << endl;
-    cout << "Timestamp: " << timestamp << endl;
-    cout << "ID: " << id << endl;
-    cout << "Category: " << category << endl;
-    cout << "learning Lang: " << learning_lang << endl;
-    cout << "native Lang: " << native_lang << endl;
-    cout << "Hash: " << hash << endl;
-    cout << "Lemma: " << lemma << endl;
-    cout << "Lemma not used: " << nolemma << endl;
-    cout << "seen: " << seen << endl;
-    cout << "correct: " << correct << endl;
-    cout << "Last1: " << last1 << endl;
-    cout << "Last2: " << last2 << endl;
-    cout << "---" << endl;
-*/
-        //l.insert(native_lang); //checking all native languages
-        //l.insert(learning_lang);
+        // Insert language to each vector
         if(native_lang == "en" && lemma != ""){
             en.push_back(node(lemma, learning_lang, stoi(seen), stoi(correct)));
         }
@@ -101,24 +81,10 @@ int main() {
     }
 
     file.close();
-    //testing shell sort on english array
-    /*
-   shellSort(en);
-   cout << "shell sort done" << endl;
-   for (const auto& n : en){
-       cout << fixed << setprecision(2) << "Word: " << n.word << "   " << "Language: " << n.language << "  " << "accuracy: " << n.acc << endl;
-   }
-   */
-    //sort algorithm
-    //print results
-
-
-
 
     bool run = true;
     bool quicksort = true;
     string response;
-
 
     cout << "Welcome to the Duolingo Data Sorter" << endl << "----------------------------------" << endl;
     while(run == true) {
@@ -210,7 +176,7 @@ int main() {
 
                 }
             }
-                //
+            // ITALIAN
             else if(response == "3"){
                 if(quicksort){
                     cout << "Quick Sort Italian" << endl;
@@ -243,9 +209,9 @@ int main() {
                 else if(response == "d"){
                     //print from index[size] to (size-n)
                     table(it, 8, false);
-
                 }
             }
+            // PORTUGUESE
             else if(response == "4"){
                 if(quicksort){
                     cout << "Quick Sort Portuguese" << endl;
@@ -290,7 +256,7 @@ int main() {
             cout << "en: English"<< endl << "sp: Spanish"<< endl << "it: Italian"<< endl << "pt: Portuguese"<< endl << "de: German" << endl << "fr: French" << endl << "(German and French are only learning languages)" << endl;
         }
 
-            // EXIT
+            // Compare Algo
         else if (response == "4"){
             vector<vector<node>> DuolingoData;
             DuolingoData.push_back(en);
@@ -301,13 +267,12 @@ int main() {
             cout << "Comparing Quick Sort and Shell Sort" << endl;
             compareAlgo(DuolingoData);
         }
-
+        // Exit
         else if(response == "5"){
             cout << "Goodbye !";
             run = false;
         }
     }
-
 
     return 0;
 }

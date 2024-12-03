@@ -1,7 +1,6 @@
 #include "node.h"
 
 
-
 // Quick Sort code from Sort Module, modified to double while loops for bound checking and readability
 int partition(vector<node>& array, int low, int high) {
     // pivot is the first element, 2 precision floating point comparison
@@ -53,15 +52,12 @@ void shellSort(vector<node>& array){
 }
 
 // use const so we do not modify the array after sorting
-
 void Summary(const vector<node>& array){
     float totalAcc = 0.00;
     for(auto &word : array){
         totalAcc += word.acc;
     }
     float meanAcc = totalAcc / array.size();
-
-    // shellSort(array);
 
     float medianAcc;
     if (array.size() % 2 != 0){
@@ -98,7 +94,6 @@ void table(const std::vector<node>& array, int numberToDisplay, bool ascending) 
         int startIndex = currentPage * numberToDisplay; // CURRNET page of table
         int endIndex = std::min(startIndex + numberToDisplay, totalEntries); // end page
 
-
         // Header
         cout << endl;
         if (ascending) {
@@ -117,6 +112,7 @@ void table(const std::vector<node>& array, int numberToDisplay, bool ascending) 
                  << setw(10) << array[i].language // learning language
                  << fixed << setprecision(2) << array[i].acc << endl; // accuracy score
         }
+        cout << string(50, '-') << endl;
 
         // After displaying sorted list, provide optinos for user to traverse through the pages using inputs, 1, 2 and 3.
         cout << "1. Previous Page" << endl
@@ -151,9 +147,10 @@ void compareAlgo (const vector<vector<node>>& array){
     chrono::duration<double> Shellduration;
     chrono::duration<double> QuickSortduration;
 
+    // goes through each leanring language array, sort and compare its time
     for (vector<node> learningLang : array){
-        auto quickArray = learningLang;
-        auto shellArray = learningLang;
+        vector<node> quickArray = learningLang;
+        vector<node> shellArray = learningLang;
         // Quick Sort
         auto Quickstart = chrono::high_resolution_clock::now();
         quickSort(quickArray, 0, quickArray.size() - 1);
@@ -168,14 +165,15 @@ void compareAlgo (const vector<vector<node>>& array){
 
     }
 
+    // Sorting difference calculation and precision printing
     if (QuickSortduration < Shellduration)
     {
-        auto difference = (Shellduration - QuickSortduration) / array.size();
-        cout << "Quick Sort is faster by " << difference.count() << endl;
+        chrono::duration<double> difference = (Shellduration - QuickSortduration) / array.size();
+        cout << "Quick Sort is faster by " << fixed << setprecision(5) << difference.count() << endl;
     }
     else if (Shellduration < QuickSortduration){
-        auto difference = (QuickSortduration - Shellduration) / array.size();
-        cout << "Shell Sort is faster by " << difference.count() << endl;
+        chrono::duration<double> difference = (QuickSortduration - Shellduration) / array.size();
+        cout << "Shell Sort is faster by " << fixed << setprecision(5) << difference.count() << endl;
     }
     else{
         cout << "Both are equal" << endl;

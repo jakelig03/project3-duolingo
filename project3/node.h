@@ -19,8 +19,7 @@ struct node {
         this->acc = (correct / total);
     }
 };
-
-int partition(std::vector<node>& array, int low, int high);
+int partition(std::vector<node>& array, int low, int high); // QuickSort Helper
 void quickSort(std::vector<node>& array, int low, int high);
 void shellSort(vector<node>& array);
 
