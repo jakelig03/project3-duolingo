@@ -159,7 +159,7 @@ int main() {
                     chrono::duration<double> duration = end - start;
                     cout << "Time to Shell Sort English is: " << fixed << setprecision(5) << duration.count() << " second" << endl;
 
-                    SummaryShell(en);
+                    Summary(en);
 
                 }
                 cout << "Would you like to reveal ascending or descending? ('a' or 'd')" << endl;
@@ -195,7 +195,7 @@ int main() {
                     chrono::duration<double> duration = end - start;
                     cout << "Time to Shell Sort Spanish is: " << fixed << setprecision(5) << duration.count() << " second" << endl;
 
-                    SummaryShell(sp);
+                    Summary(sp);
                 }
                 cout << "Would you like to reveal ascending or descending? ('a' or 'd')" << endl;
                 cin >> response;
@@ -231,7 +231,7 @@ int main() {
                     chrono::duration<double> duration = end - start;
                     cout << "Time to Shell Sort Italian is: " << fixed << setprecision(5) << duration.count() << " second" << endl;
 
-                    SummaryShell(it);
+                    Summary(it);
                 }
                 cout << "Would you like to reveal ascending or descending? ('a' or 'd')" << endl;
                 cin >> response;
@@ -265,7 +265,7 @@ int main() {
                     chrono::duration<double> duration = end - start;
                     cout << "Time to Shell Sort Portuguese is: " << fixed << setprecision(5) << duration.count() << " second" << endl;
 
-                    SummaryShell(pt);
+                    Summary(pt);
                 }
                 cout << "Would you like to reveal ascending or descending? ('a' or 'd')" << endl;
                 cin >> response;
