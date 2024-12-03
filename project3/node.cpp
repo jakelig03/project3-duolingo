@@ -98,7 +98,8 @@ void table(const std::vector<node>& array, int numberToDisplay, bool ascending) 
         cout << endl;
         if (ascending) {
             cout << numberToDisplay << " HARDEST LEARNING WORDS (Page " << currentPage + 1 << " of " << totalPages << ")" << endl;
-        } else {
+        }
+        else {
             cout << numberToDisplay << " EASIEST LEARNING WORDS (Page " << currentPage + 1 << " of " << totalPages << ")" << endl;
         }
         cout << left << setw(10) << "Index" << setw(20) << "Word" << setw(10) << "Language" << setw(10) << "Accuracy" << endl;
@@ -125,19 +126,15 @@ void table(const std::vector<node>& array, int numberToDisplay, bool ascending) 
         if (response == "1") { // Previous Page
             if (currentPage > 0) {
                 --currentPage;
-            } else {
-                cout << "You are already on the first page.\n";
             }
-        } else if (response == "2") { // NextNpage
+        }
+        else if (response == "2") { // Next page
             if (currentPage < totalPages - 1) {
                 ++currentPage;
-            } else {
-                cout << "You are already on the last page.\n";
             }
-        } else if (response == "3") { // Exit
+        }
+        else if (response == "3") { // Exit
             break;
-        } else {
-            cout << "Invalid choice. Please try again.\n";
         }
     }
 }
@@ -175,7 +172,8 @@ void compareAlgo (const vector<vector<node>>& array){
         chrono::duration<double> difference = (QuickSortduration - Shellduration) / array.size();
         cout << "Shell Sort is faster by " << fixed << setprecision(5) << difference.count() << endl;
     }
-    else{
+    else
+    {
         cout << "Both are equal" << endl;
     }
 }
