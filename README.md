@@ -1,3 +1,5 @@
 # project3-duolingo
 
 This code uses a duolingo database with 30k+ lines to sort hard or easy words based on the users native language. Our executable has 4 initial menu options, view words based on language, change the sort between quick and shell, view the languages in the database, and exit the program. If the user wants to sort and view words, they'll select 1 on the inital menu. This will bring them to another menu to select their native language. Then they'll select to see the sorted list in ascended or descending order. After the user chooses how to sort the list, they are provided the option to view more words by selecting 2 to view the next page and 1 to view the previous page. I they do not want to view more words they can select 3 which will exit out of that menu and instruct them back to the initial menu. If the user wants to change the sorting algorithm, they'll select 2 on the inital menu. If the user wants to see the list of languages, they'll select 3 on the inital menu. If the user wants to close the program. they'll select 4 on the inital menu.
+
+[YOUTUBE VIDEO](<https://www.youtube.com/watch?v=WaQSSBRsU88&ab_channel=AlisiaNguyen>)
