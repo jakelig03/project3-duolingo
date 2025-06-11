@@ -1,4 +1,4 @@
-# project3-duolingo
+# Duolingo Language Accuracy Algorithm
 
 [YOUTUBE VIDEO](<https://www.youtube.com/watch?v=WaQSSBRsU88&ab_channel=AlisiaNguyen>)
 
